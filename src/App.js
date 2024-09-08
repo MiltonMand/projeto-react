@@ -1,33 +1,24 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './components/Home';
-import Company from './components/Company';
-import Contact from './components/Contact';
-import MyProject from './components/MyProject';
+import Home from './componentes/pages/Home';
+import Company from './componentes/pages/Company';
+import Contact from './componentes/pages/Contact';
+import MyProject from './componentes/pages/MyProject';
+
+import Conteiner from './componentes/layout/Conteiner';
+import NavBar from './componentes/layout/NavBar';
 
 function App() {
   return (
     <Router>
-      <ul>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li>
-          <Link to='/company'>Company</Link>
-        </li>
-        <li>
-          <Link to='/contact'>Contact</Link>
-        </li>
-        <li>
-          <Link to='/myproject'>MyProjects</Link>
-        </li>
-      </ul>
-
-      <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route path='/company' element={<Company />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/myproject' element={<MyProject />} />
-      </Routes>
+      <NavBar/>
+      <Conteiner customClass='min-height'>
+        <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route path='/company' element={<Company />} />
+            <Route path='/contact' element={<Contact />} /> 
+            <Route path='/myproject' element={<MyProject />} />
+        </Routes>
+      </Conteiner>
     </Router>
   );
 }
